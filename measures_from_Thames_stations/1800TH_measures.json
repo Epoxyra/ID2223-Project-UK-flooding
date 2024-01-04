@@ -1,0 +1,59 @@
+[
+  {
+    "@id": "http://environment.data.gov.uk/flood-monitoring/id/measures/1800TH-level-stage-i-15_min-mASD",
+    "datumType": "http://environment.data.gov.uk/flood-monitoring/def/core/datumASD",
+    "label": "THAMES AT SUTTON COURTENAY (GAUGED) - level-stage-i-15_min-mASD",
+    "latestReading": {
+      "@id": "http://environment.data.gov.uk/flood-monitoring/data/readings/1800TH-level-stage-i-15_min-mASD/2024-01-04T00-00-00Z",
+      "date": "2024-01-04",
+      "dateTime": "2024-01-04T00:00:00Z",
+      "measure": "http://environment.data.gov.uk/flood-monitoring/id/measures/1800TH-level-stage-i-15_min-mASD",
+      "value": 3.902
+    },
+    "notation": "1800TH-level-stage-i-15_min-mASD",
+    "parameter": "level",
+    "parameterName": "Water Level",
+    "period": 900,
+    "qualifier": "Stage",
+    "station": "http://environment.data.gov.uk/flood-monitoring/id/stations/1800TH",
+    "stationReference": "1800TH",
+    "unit": "http://qudt.org/1.1/vocab/unit#Meter",
+    "unitName": "mASD",
+    "valueType": "instantaneous"
+  },
+  {
+    "@id": "http://environment.data.gov.uk/flood-monitoring/id/measures/1800TH-flow--Mean-15_min-m3_s",
+    "label": "THAMES AT SUTTON COURTENAY (GAUGED) - flow--Mean-15_min-m3_s",
+    "notation": "1800TH-flow--Mean-15_min-m3_s",
+    "parameter": "flow",
+    "parameterName": "Flow",
+    "period": 900,
+    "qualifier": "",
+    "station": "http://environment.data.gov.uk/flood-monitoring/id/stations/1800TH",
+    "stationReference": "1800TH",
+    "unit": "http://qudt.org/1.1/vocab/unit#CubicMeterPerSecond",
+    "unitName": "m3/s",
+    "valueType": "mean"
+  },
+  {
+    "@id": "http://environment.data.gov.uk/flood-monitoring/id/measures/1800TH-flow--i-15_min-m3_s",
+    "label": "THAMES AT SUTTON COURTENAY (GAUGED) - flow--i-15_min-m3_s",
+    "latestReading": {
+      "@id": "http://environment.data.gov.uk/flood-monitoring/data/readings/1800TH-flow--i-15_min-m3_s/2024-01-04T00-00-00Z",
+      "date": "2024-01-04",
+      "dateTime": "2024-01-04T00:00:00Z",
+      "measure": "http://environment.data.gov.uk/flood-monitoring/id/measures/1800TH-flow--i-15_min-m3_s",
+      "value": 156.98
+    },
+    "notation": "1800TH-flow--i-15_min-m3_s",
+    "parameter": "flow",
+    "parameterName": "Flow",
+    "period": 900,
+    "qualifier": "",
+    "station": "http://environment.data.gov.uk/flood-monitoring/id/stations/1800TH",
+    "stationReference": "1800TH",
+    "unit": "http://qudt.org/1.1/vocab/unit#CubicMeterPerSecond",
+    "unitName": "m3/s",
+    "valueType": "instantaneous"
+  }
+]

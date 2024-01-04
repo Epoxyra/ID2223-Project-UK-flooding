@@ -1,0 +1,24 @@
+[
+  {
+    "@id": "http://environment.data.gov.uk/flood-monitoring/id/measures/0144TH-level-stage-i-15_min-mASD",
+    "datumType": "http://environment.data.gov.uk/flood-monitoring/def/core/datumASD",
+    "label": "River Thames at Somerford Keynes - level-stage-i-15_min-mASD",
+    "latestReading": {
+      "@id": "http://environment.data.gov.uk/flood-monitoring/data/readings/0144TH-level-stage-i-15_min-mASD/2024-01-04T00-00-00Z",
+      "date": "2024-01-04",
+      "dateTime": "2024-01-04T00:00:00Z",
+      "measure": "http://environment.data.gov.uk/flood-monitoring/id/measures/0144TH-level-stage-i-15_min-mASD",
+      "value": 1.477
+    },
+    "notation": "0144TH-level-stage-i-15_min-mASD",
+    "parameter": "level",
+    "parameterName": "Water Level",
+    "period": 900,
+    "qualifier": "Stage",
+    "station": "http://environment.data.gov.uk/flood-monitoring/id/stations/0144TH",
+    "stationReference": "0144TH",
+    "unit": "http://qudt.org/1.1/vocab/unit#Meter",
+    "unitName": "mASD",
+    "valueType": "instantaneous"
+  }
+]

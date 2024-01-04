@@ -1,0 +1,46 @@
+[
+  {
+    "@id": "http://environment.data.gov.uk/flood-monitoring/id/measures/1303TH-level-stage-i-15_min-mASD",
+    "datumType": "http://environment.data.gov.uk/flood-monitoring/def/core/datumASD",
+    "label": "River Thames at Osney Lock - level-stage-i-15_min-mASD",
+    "latestReading": {
+      "@id": "http://environment.data.gov.uk/flood-monitoring/data/readings/1303TH-level-stage-i-15_min-mASD/2024-01-03T23-45-00Z",
+      "date": "2024-01-03",
+      "dateTime": "2024-01-03T23:45:00Z",
+      "measure": "http://environment.data.gov.uk/flood-monitoring/id/measures/1303TH-level-stage-i-15_min-mASD",
+      "value": 0.08
+    },
+    "notation": "1303TH-level-stage-i-15_min-mASD",
+    "parameter": "level",
+    "parameterName": "Water Level",
+    "period": 900,
+    "qualifier": "Stage",
+    "station": "http://environment.data.gov.uk/flood-monitoring/id/stations/1303TH",
+    "stationReference": "1303TH",
+    "unit": "http://qudt.org/1.1/vocab/unit#Meter",
+    "unitName": "mASD",
+    "valueType": "instantaneous"
+  },
+  {
+    "@id": "http://environment.data.gov.uk/flood-monitoring/id/measures/1303TH-level-downstage-i-15_min-mASD",
+    "datumType": "http://environment.data.gov.uk/flood-monitoring/def/core/datumASD",
+    "label": "River Thames at Osney Lock - level-downstage-i-15_min-mASD",
+    "latestReading": {
+      "@id": "http://environment.data.gov.uk/flood-monitoring/data/readings/1303TH-level-downstage-i-15_min-mASD/2024-01-04T00-00-00Z",
+      "date": "2024-01-04",
+      "dateTime": "2024-01-04T00:00:00Z",
+      "measure": "http://environment.data.gov.uk/flood-monitoring/id/measures/1303TH-level-downstage-i-15_min-mASD",
+      "value": 3.603
+    },
+    "notation": "1303TH-level-downstage-i-15_min-mASD",
+    "parameter": "level",
+    "parameterName": "Water Level",
+    "period": 900,
+    "qualifier": "Downstream Stage",
+    "station": "http://environment.data.gov.uk/flood-monitoring/id/stations/1303TH",
+    "stationReference": "1303TH",
+    "unit": "http://qudt.org/1.1/vocab/unit#Meter",
+    "unitName": "mASD",
+    "valueType": "instantaneous"
+  }
+]

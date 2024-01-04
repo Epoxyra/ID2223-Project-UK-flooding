@@ -1,36 +1,32 @@
 import requests
-import csv
+import json
+import os
 
-url = "https://environment.data.gov.uk/flood-monitoring/id/stations"
-response = requests.get(url)
+def get_station_measures(station_reference):
+    url = f"http://environment.data.gov.uk/flood-monitoring/id/stations/{station_reference}/measures"
+    response = requests.get(url)
 
-if response.status_code == 200:
-    data = response.json()
-    items = data.get("items", [])
+    if response.status_code == 200:
+        return response.json().get("items", [])
+    else:
+        print(f"Erreur lors de la requête pour la station {station_reference} :", response.status_code)
+        return []
 
-    # Filtrer les stations avec riverName égal à "River Thames"
-    thames_stations = [station for station in items if station.get("riverName") == "River Thames"]
+def write_measures_to_json(station_reference, measures):
+    if not os.path.exists("measures_from_Thames_stations"):
+        os.makedirs("measures_from_Thames_stations")
 
-    # Nom du fichier CSV de sortie
-    csv_filename = "thames_stations.csv"
+    json_filename = f"measures_from_Thames_stations/{station_reference}_measures.json"
 
-    # Collecter tous les champs présents dans les stations
-    all_fields = set()
-    for thames_station in thames_stations:
-        all_fields.update(thames_station.keys())
+    with open(json_filename, mode='w', encoding='utf-8') as json_file:
+        json.dump(measures, json_file, indent=2)
 
-    # Écrire les données dans le fichier CSV
-    with open(csv_filename, mode='w', newline='', encoding='utf-8') as csv_file:
-        fieldnames = list(all_fields)
-        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+    print(f"Les mesures de la station {station_reference} ont été écrites dans {json_filename}.")
 
-        # Écrire l'en-tête du fichier CSV
-        writer.writeheader()
+# Lire les références de station à partir du fichier texte
+with open("Thames_station_reference.txt", "r") as file:
+    station_references = [line.strip() for line in file if line.strip()]
 
-        # Écrire les données des stations dans le fichier CSV avec un retour à la ligne entre chaque station
-        for thames_station in thames_stations:
-            writer.writerow(thames_station)
-
-    print(f"Les données ont été écrites dans {csv_filename}.")
-else:
-    print("Erreur lors de la requête :", response.status_code)
+for station_reference in station_references:
+    measures = get_station_measures(station_reference)
+    write_measures_to_json(station_reference, measures)
