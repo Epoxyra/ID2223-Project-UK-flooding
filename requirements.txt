@@ -1,0 +1,7 @@
+#If you have windows, install twofish
+hopsworks
+joblib
+scikit-learn
+dataframe-image
+modal
+gradio
