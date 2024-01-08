@@ -8,7 +8,7 @@ if LOCAL == False:
    stub = modal.Stub("flood_3_hours")
    image = modal.Image.debian_slim().pip_install(["hopsworks"]) 
 
-   @stub.function(image=image, schedule=modal.Period(hours=3), secret=modal.Secret.from_name("id2223"))
+   @stub.function(image=image, schedule=modal.Period(hours=3), secret=modal.Secret.from_name("HOPSWORKS_API_KEY"))
    def f():
        g()
 
