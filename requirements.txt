@@ -5,3 +5,4 @@ scikit-learn
 dataframe-image
 modal
 gradio
+requests
