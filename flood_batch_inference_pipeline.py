@@ -2,6 +2,7 @@ import os
 import modal
 
 LOCAL = True
+os.environ['HOPSWORKS_API_KEY'] = 'cKV1tKzokpcwviY6.uP2qcFV2wWI8xxNu1I0UxyeqlRHqSEanLgKFjf5R1ypSy8A3AUnRkRpi0R9Gc5l0'
 
 if LOCAL == False:
     stub = modal.Stub()
@@ -34,25 +35,33 @@ def g():
     model = mr.get_model("flood_model", version=1)
     model_dir = model.download()
     model = joblib.load(model_dir + "/flood_model.pkl")
-    feature_view = fs.get_feature_view(name="flood", version=1)
+    feature_view = fs.get_feature_view(name="flood", version=10)
     batch_data = feature_view.get_batch_data()
 
     y_pred = model.predict(batch_data)
     # print(y_pred)
-    offset = 1
-    flood_alert = y_pred[y_pred.size - offset]
-    flood_url = "https://raw.githubusercontent.com/Epoxyra/ID2223-Project-UK-flooding/main/images/" + flood_alert + ".png"
-    print("flood predicted: " + flood_alert)
+    offset = 20
+    print("before round", y_pred[y_pred.size - offset])
+    flood_alert = round(y_pred[y_pred.size - offset][0])
+    print(flood_alert)
+    flood_url = "https://raw.githubusercontent.com/Epoxyra/ID2223-Project-UK-flooding/main/images/" + str(flood_alert) + ".png"
+    print(flood_url)
+    print("flood predicted: " + str(flood_alert))
     img = Image.open(requests.get(flood_url, stream=True).raw)
     img.save("./latest_flood.png")
     dataset_api = project.get_dataset_api()
     dataset_api.upload("./latest_flood.png", "Resources/images", overwrite=True)
 
-    flood_fg = fs.get_feature_group(name="flood", version=1)
+    flood_fg = fs.get_feature_group(name="flood", version=2)
     df = flood_fg.read()
     # print(df)
     label = df.iloc[-offset]["severitylevel"]
-    label_url = "https://raw.githubusercontent.com/Epoxyra/id2223_lab1_flood/main/images/" + label + ".jpg"
+    label_measure = df.iloc[-offset]["value"]
+    print("measure", label_measure)
+    print(label)
+    print(isinstance(label, float))
+    label = str(int(label))
+    label_url = "https://raw.githubusercontent.com/Epoxyra/ID2223-Project-UK-flooding/main/images/" + label + ".png"
     print("flood actual: " + label)
     img = Image.open(requests.get(label_url, stream=True).raw)
     img.save("./actual_flood.png")
